@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
   root to: "public#index"
 
-  devise_for :users
+
 
   resources :books
 

@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-md-12 ">
+    <%= simple_form_for([:admin, @book], url: {action: "create"}) do |f| %>
+      <div class="row">
+        <div class="col-sm-4 col-md-4 form-group">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="thumbnail">
+              <img src="" onerror="this.src='https://placeholdit.imgix.net/~text?txtsize=50&txt=上傳圖片&w=300&h=300'">
+              </div>
+            </div>
+            <div class="col-md-12 form-group">
+              <%= f.simple_fields_for :photo do |c| %>
+                <%= c.input :image , as: :file %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-8 col-md-8 form-group">
+          <div class="row">
+            <div class="col-md-4 col-md-4">
+              <div class="form-group">
+                <%= f.input :title, label: "書名" %>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-md-4">
+              <div class="form-group">
+                <%= f.input :editor, label: "作者" %>
+              </div>
+            </div>
+
+            <div class="col-md-2 col-md-2">
+              <div class="form-group">
+                <%= f.input :quantity, label: "數量" %>
+              </div>
+            </div>
+          </div><!-- End of class row1 -->
+
+          <div class="row">
+            <div class="col-sm-4 col-md-4">
+                <%= f.input :isbn, label: "ISBN" %>
+            </div>
+
+            <div class="col-md-14 form-group">
+                <%= f.input :published_date, label: '出版日期"' %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6 col-md-6 form-group">
+              <%= f.label :price, "出租價格：" %>
+              <div class="input-group">
+                <div class="input-group-addon">$</div>
+                <%= f.number_field :price, class: "form-control" %>
+                <div class="input-group-addon">
+                  NTD
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 ">
+              <div class="form-group">
+                <%= f.input :description, label: "內容介紹", input_html: {rows: "5"} %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 form-group">
+              <%= f.submit "新增書籍", class:"btn btn-success btn-lg " %>
+              </div>
+          </div>
+        </div><!-- /.col-md-8 -->
+      </div><!-- /.row -->
+    <% end %>
+  </div>
+</div>

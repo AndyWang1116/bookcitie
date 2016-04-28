@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :books
 
   namespace :admin do
-    resources :books
+    resources :products
   end
 
 

@@ -1,0 +1,91 @@
+@media (min-width: 768px) {
+.ds-sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+    }
+
+.ds-page {
+    top: 51px;
+    left: 10px;
+    display: block;
+    padding: 5px;
+    height: 900px;
+    }
+}
+
+.ds-sidebar ul li{
+    border-bottom: 1px solid #ddd;
+}
+
+.ds-panel-green{
+  border-color: #5cb85c;
+}
+
+.ds-panel-green .ds-panel-header{
+    padding: 25px ;
+    border-color: #5cb85c;
+    color: #fff;
+    background-color: #5cb85c;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.ds-panel-yellow{
+  border-color: #f0ad4e;
+}
+
+.ds-panel-yellow .panel-header{
+  padding: 25px ;
+  border-color: #f0ad4e;
+  color: #fff;
+  background-color: #f0ad4e;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.ds-panel-blue{
+  border-color: #337ab7;
+}
+
+.ds-panel-blue .panel-header{
+  padding: 25px ;
+  border-color: #337ab7;
+  color: #fff;
+  background-color: #337ab7;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.ds-panel-red{
+  border-color: #d9534f;
+  margin-right: 0px;
+}
+
+.ds-panel-red .panel-header{
+  padding: 25px ;
+  border-color: #d9534f;
+  color: #fff;
+  background-color: #d9534f;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.ds-panel{
+  margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.col-md-9.ds-page{
+  padding-right: 30px;
+}

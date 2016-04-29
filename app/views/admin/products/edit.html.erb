@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <h3>新增書籍</h3>
+    <h3>修改書籍</h3>
   </div>
 </div>
 
@@ -13,9 +13,11 @@
         <div class="col-sm-4 col-md-4 form-group">
           <div class="row">
             <div class="col-md-12">
-              <div class="thumbnail">
-              <img src="" onerror="this.src='https://placeholdit.imgix.net/~text?txtsize=50&txt=上傳圖片&w=300&h=300'">
-              </div>
+              <% if @photo.image.present? %>
+                <%= image_tag @photo.image.medium.url, class: "thumbnail img-responsive" %>
+              <% else %>
+                <%= image_tag "http://placehold.it/400x400&text=尚未上傳圖片", class: "img-responsive" %>
+              <% end %>
             </div>
             <div class="col-md-12 form-group">
               <%= f.simple_fields_for :photo do |c| %>
@@ -50,11 +52,13 @@
             <div class="col-sm-4 col-md-4">
                 <%= f.input :isbn, label: "ISBN" %>
             </div>
+
             <div class="col-md-3 form-group">
               <%= f.input :publisher, label: "出版商" %>
             </div>
-            <div class="col-md-5 form-group">
-              <%= f.input :published_date, label: "出版日期" %>
+
+            <div class="col-md-14 form-group">
+                <%= f.input :published_date, label: '出版日期"' %>
             </div>
           </div>
 
@@ -79,7 +83,7 @@
           </div>
           <div class="row">
             <div class="col-md-12 form-group">
-              <%= f.submit "新增書籍", class:"btn btn-success btn-lg " %>
+              <%= f.submit "修改書籍資料", class:"btn btn-success btn-lg " %>
               </div>
           </div>
         </div><!-- /.col-md-8 -->

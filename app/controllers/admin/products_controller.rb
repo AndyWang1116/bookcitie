@@ -4,12 +4,12 @@ class Admin::ProductsController < ApplicationController
   layout "admin"
 
   def index
-    @books = Book.mark
+    @books = Book.mark.order("updated_at DESC")
   end
 
   def new
     @book = Book.new
-    @photos = @book.build_photo
+    @photo = @book.build_photo
   end
 
 
@@ -28,6 +28,11 @@ class Admin::ProductsController < ApplicationController
   end
 
   def edit
+    if @book.photo.present?
+      @photo = @book.photo
+    else
+      @photo = @book.build_photo
+    end
   end
 
   def update
@@ -45,7 +50,8 @@ class Admin::ProductsController < ApplicationController
                                  :price,
                                  :isbn,
                                  :published_date,
-                                 :editor,
+                                 :author,
+                                 :publisher,
                                  photo_attributes: [:image, :id])
   end
 

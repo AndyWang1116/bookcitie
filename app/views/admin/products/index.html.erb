@@ -14,7 +14,7 @@
           <th> 書名 </th>
           <th> 作者 </th>
           <th> 出版商 </th>
-          <th> 出租價格 </th>
+          <th> 出租價格 (元) </th>
           <th> 建立日期 </th>
           <th> 最後修改日期</th>
         </tr>
@@ -26,10 +26,13 @@
           <td><%= link_to "#{book.title}", edit_admin_product_path(book) %></td>
           <td><%= book.author %></td>
           <td><%= book.publisher %></td>
-          <td><%= book.price %> NTD</td>
+          <td><%= book.price %> </td>
           <td><%= book.created_at.to_s(:long) %></td>
           <td><%= book.updated_at.to_s(:long) %></td>
-          <td></td>
+          <td><%= link_to edit_admin_product_path(book) do %>
+              <i class="fa fa-pencil-square-o fa-3" aria-hidden="true"></i><% end %></td>
+          <td><%= link_to admin_product_path(book), method: :delete, data: {confirm: "你確定要刪除 '#{book.title}' ? "} do %>
+              <i class="fa fa-trash-o fa-3" aria-hidden="true"></i> <% end %></td>
         </tr>
         <% end %>
       </tbody>

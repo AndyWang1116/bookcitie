@@ -25,6 +25,7 @@ class Admin::ProductsController < ApplicationController
 
 
   def show
+    @photo = @book.photo
   end
 
   def edit
@@ -36,9 +37,18 @@ class Admin::ProductsController < ApplicationController
   end
 
   def update
+    if @book.update(book_params)
+      redirect_to admin_products_path
+    else
+      rende :edit
+    end
   end
 
   def destroy
+    @book.del_mark = true
+    @book.save
+    redirect_to admin_products_path, alert: "已刪除#{@book.title}"
+
   end
 
   private

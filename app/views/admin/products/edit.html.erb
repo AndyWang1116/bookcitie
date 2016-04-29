@@ -8,7 +8,7 @@
 
 <div class="row">
   <div class="col-md-12 ">
-    <%= simple_form_for([:admin, @book], url: {action: "create"}) do |f| %>
+    <%= simple_form_for([:admin, @book], :url => admin_product_path(@book) ) do |f| %>
       <div class="row">
         <div class="col-sm-4 col-md-4 form-group">
           <div class="row">

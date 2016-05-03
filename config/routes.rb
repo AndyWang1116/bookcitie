@@ -6,7 +6,12 @@ Rails.application.routes.draw do
     resources :rents
   end
 
-  resources :books
+  resources :books do
+    member do
+      post :add_to_cart
+    end
+  end
+
 
   namespace :admin do
     resources :products

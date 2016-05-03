@@ -51,6 +51,7 @@ class Admin::ProductsController < ApplicationController
 
   end
 
+
   private
 
   def book_params

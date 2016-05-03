@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  books: 1
+  totoal_price: 1
+  status: MyString
+
+two:
+  books: 1
+  totoal_price: 1
+  status: MyString

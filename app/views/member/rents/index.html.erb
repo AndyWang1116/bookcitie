@@ -1,0 +1,42 @@
+<div class="row">
+
+  <div class="col-md-3">
+    <%= render "common/sidebar_member" %>
+  </div>
+
+  <div class="col-md-9">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>租借記錄</h2>
+      </div>
+      <hr>
+    </div>
+    <table class="table table-hover table-striped table-responsive">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>租書時間</th>
+          <th>租書數量</th>
+          <th>總計(元)</th>
+          <th>到期日</th>
+          <th>狀態</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @rents.each do |rent| %>
+        <tr>
+          <td><%= link_to "#{rent.id}", member_rent_path(rent) %></td>
+          <td><%= rent.created_at.strftime("%Y-%m-%d") %></td>
+          <td><%= rent.books.size %></td>
+          <td><%= total_price(rent) %></td>
+          <td><%= render_due_day(rent) %></td>
+          <td><%= render_status(rent) %></td>
+          <td><%= link_to "續借", "#" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>

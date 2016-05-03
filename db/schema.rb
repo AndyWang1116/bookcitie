@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160429033313) do
+ActiveRecord::Schema.define(version: 20160429072517) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20160429033313) do
     t.datetime "updated_at",                     null: false
     t.boolean  "del_mark",       default: false
     t.string   "publisher"
+    t.boolean  "returned",       default: false
+    t.integer  "rent_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -33,6 +35,14 @@ ActiveRecord::Schema.define(version: 20160429033313) do
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "rents", force: :cascade do |t|
+    t.integer  "total_price"
+    t.string   "status"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-2">
+
+  </div>
+
+  <div class="col-md-4">
+    <%= image_tag(@book.photo.image.medium.url, class: "thumbnail") %>
+  </div>
+  <div class="col-md-4">
+    <h2> <%= @book.title %> </h2>
+    <div style="height:100px;">
+      <p>
+        <%= @book.description %>
+      </p>
+    </div>
+    <div> 作者 : <%= @book.author %> </div>
+    <div> 出版商 : <%= @book.publisher %> </div>
+    <div> 出版日期 : <%= @book.published_date %> </div>
+    <div class="product-price"> 出租價格 : <%= @book.price %> 元 </div>
+    <div class="pull-right">
+      <% if @book.quantity > 0 %>
+        <%= link_to("加入購物車", add_to_cart_book_path(@book), method: :post, :class => "btn btn-primary btn-lg btn-danger") %>
+      <% else %>
+        <strong>目前無庫存，無法出租</strong>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+
+  </div>
+
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160428101531) do
+ActiveRecord::Schema.define(version: 20160503035140) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -20,11 +20,26 @@ ActiveRecord::Schema.define(version: 20160428101531) do
     t.integer  "price"
     t.string   "isbn"
     t.date     "published_date"
-    t.string   "editor"
+    t.string   "author"
     t.integer  "views_count",    default: 0
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.boolean  "del_mark",       default: false
+    t.string   "publisher"
+    t.boolean  "returned",       default: false
+    t.integer  "rent_id"
+  end
+
+  create_table "cart_items", force: :cascade do |t|
+    t.integer  "cart_id"
+    t.integer  "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "photos", force: :cascade do |t|
@@ -32,6 +47,14 @@ ActiveRecord::Schema.define(version: 20160428101531) do
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "rents", force: :cascade do |t|
+    t.integer  "total_price"
+    t.string   "status"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -2,6 +2,7 @@ class Admin::ProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_book, except: [:index, :new, :create]
   layout "admin"
+  load_and_authorize_resource :book
 
   def index
     @books = Book.mark.order("updated_at DESC")

@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
   has_many :rents
   accepts_nested_attributes_for :rents
 
+ROLES = %i[admin moderator member]
+
 end

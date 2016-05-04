@@ -1,6 +1,7 @@
 class Member::RentsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_rent, except: [:index, :new, :create]
+  load_and_authorize_resource
 
   def index
     @rents = Rent.all.order("updated_at DESC")

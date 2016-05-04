@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <div class="text-center"><h3>新書上架</h3></div>
+      <hr>
+    </tr>
+    <tr>
+      <th>書名</th>
+      <th>上傳日期</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @latests.each do |latest| %>
+      <tr>
+        <td><%= latest.title %></td>
+        <td><%= latest.created_at.strftime("%Y-%m-%d") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

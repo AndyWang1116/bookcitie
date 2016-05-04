@@ -1,7 +1,14 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(user, controller_namespace)
+    case controller_namespace
+      when 'Admin'
+        can :manage, :all if user.role == 'admin' || 'moderator'
+      else
+        cannot :manage, :all
+    end
+
     if user.blank?
       cannot :manage, :all
       basic_read_only
@@ -10,7 +17,7 @@ class Ability
     elsif user.role == "moderator"
       can :manage, :all
     else
-      can :manage, Rent do |rent|
+      can :read, Rent do |rent|
       (rent.user_id == user.id)
       end
       can :read, Book

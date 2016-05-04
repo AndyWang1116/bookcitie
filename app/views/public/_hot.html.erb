@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <div class="text-center"><h3>熱門排行</h3></div>
+      <hr>
+    </tr>
+    <tr>
+      <th>書名</th>
+      <th>瀏覽次數</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @hots.each do |hot| %>
+      <tr>
+        <td><%= hot.title %></td>
+        <td><%= hot.views_count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

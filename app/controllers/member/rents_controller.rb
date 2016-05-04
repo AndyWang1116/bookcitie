@@ -4,7 +4,7 @@ class Member::RentsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @rents = Rent.all.order("updated_at DESC")
+    @rents = Rent.where(user_id: current_user.id).order("updated_at DESC")
   end
 
   def new

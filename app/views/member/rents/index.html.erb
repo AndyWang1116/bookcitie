@@ -24,6 +24,7 @@
         </tr>
       </thead>
       <tbody>
+
         <% @rents.each do |rent| %>
         <tr>
           <td><%= link_to "#{rent.id}", member_rent_path(rent) %></td>
@@ -34,6 +35,7 @@
           <td><%= render_status(rent) %></td>
           <td><%= link_to "續借", "#" %></td>
         </tr>
+
         <% end %>
       </tbody>
     </table>

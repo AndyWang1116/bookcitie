@@ -10,11 +10,10 @@ class Ability
     elsif user.role == "moderator"
       can :manage, :all
     else
-      cannot :manage, Admin::Book
       can :manage, Rent do |rent|
       (rent.user_id == user.id)
       end
-      can :manage, Book
+      can :read, Book
     end
 
   end

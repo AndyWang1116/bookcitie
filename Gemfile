@@ -8,6 +8,10 @@ gem 'simple_form'
 gem 'awesome_rails_console'
 gem 'font-awesome-rails'
 gem 'cancancan'
+gem 'figaro'
+gem 'omniauth-facebook'
+
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
